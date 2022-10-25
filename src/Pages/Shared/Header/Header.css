@@ -1,0 +1,13 @@
+.header-link {
+    margin-left: 20px;
+    font-size: 25px;
+    text-decoration: none;
+    text-align: right;
+    margin-right: 15px;
+
+}
+
+.header-link a {
+    margin-right: 15px;
+    text-decoration: none;
+}

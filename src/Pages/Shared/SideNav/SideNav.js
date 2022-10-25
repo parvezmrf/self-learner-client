@@ -2,7 +2,13 @@ import React from 'react';
 
 const SideNav = () => {
     return (
-        <div>
+        <div className='ps-5' >
+            <h2>Side Nav</h2>
+            <h2>Side Nav</h2>
+            <h2>Side Nav</h2>
+            <h2>Side Nav</h2>
+            <h2>Side Nav</h2>
+            <h2>Side Nav</h2>
             <h2>Side Nav</h2>
         </div>
     );

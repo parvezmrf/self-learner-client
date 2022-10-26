@@ -1,0 +1,68 @@
+[
+    {
+        "id": "1",
+        "names": "Modern React with Redux",
+        "name": "React with Redux",
+        "author": "Stephen Grider",
+        "duration": "120",
+        "rating": "4.7",
+        "date": "9/2022",
+        "price": "25",
+        "img": "https://img-c.udemycdn.com/course/240x135/837094_75da_2.jpg"
+    },
+    {
+        "id": "2",
+        "names": "React JS Web Development",
+        "name": "React JS Web",
+        "author": "David Joseph Katz",
+        "duration": "60",
+        "rating": "4.5",
+        "date": "10/2022",
+        "price": "30",
+        "img": "https://img-c.udemycdn.com/course/240x135/1078522_f455_3.jpg"
+    },
+    {
+        "id": "3",
+        "names": "React JS, Angular & Vue JS ",
+        "name": "React JS Angular",
+        "author": "Maxilium",
+        "duration": "130",
+        "rating": "4.6",
+        "date": "11/2022",
+        "price": "32",
+        "img": "https://img-c.udemycdn.com/course/240x135/1208638_2604.jpg"
+    },
+    {
+        "id": "4",
+        "names": "Typescript & React JS Course",
+        "name": "Typescript & React JS",
+        "author": "Oak Academy",
+        "duration": "95",
+        "rating": "4.3",
+        "date": "10/2022",
+        "price": "25",
+        "img": "https://img-c.udemycdn.com/course/240x135/4735236_c6b7.jpg"
+    },
+    {
+        "id": "5",
+        "names": "React Development Bootcamp",
+        "name": "React Development",
+        "author": "Sufa Digital",
+        "duration": "110",
+        "rating": "4.2",
+        "date": "9/2022",
+        "price": "23",
+        "img": "https://img-c.udemycdn.com/course/240x135/4726062_4ef4_2.jpg"
+    },
+    {
+        "id": "6",
+        "names": "Full Stack Web & Mobile App",
+        "name": "Web & Mobile App",
+        "author": "Academy",
+        "duration": "85",
+        "rating": "4.3",
+        "date": "8/2022",
+        "price": "20",
+        "img": "https://img-c.udemycdn.com/course/240x135/4336818_1ff0_2.jpg"
+    }
+]

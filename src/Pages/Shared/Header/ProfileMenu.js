@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 import Logo from '../../../assets/logo.png'
+import Button from 'react-bootstrap/Button';
 
 const ProfileMenu = () => {
 
@@ -22,8 +23,8 @@ const ProfileMenu = () => {
                 <div>
 
                     {uuud.id ? <span>
-                        <Link to='login' ><button className='btn btn-success me-2' >Login</button></Link>
-                        <Link to='register' ><button className='btn btn-success me-2' >Register</button></Link>
+                        <Link to='login' ><Button variant="outline-success" className="me-2" >Login</Button></Link>
+                        <Link to='register' ><Button variant="outline-success" className="me-2" >Register</Button></Link>
 
                     </span> : <span>None</span>
 

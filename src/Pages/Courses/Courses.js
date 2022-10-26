@@ -9,7 +9,7 @@ const Courses = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('https://self-learner-server.vercel.app/courses')
             .then(res => res.json())
             .then(data => SetCourse(data))
     }, [])

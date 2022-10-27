@@ -10,6 +10,9 @@ const CourseDetails = () => {
 
     return (
         < div>
+
+
+            <Button variant="info">Click to download as PDF</Button>
             <Card className='w-75' >
                 <Card.Img variant="top" src={img} />
                 <Card.Body>

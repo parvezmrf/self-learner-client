@@ -10,7 +10,7 @@ const Header = () => {
             <ProfileMenu></ProfileMenu>
 
             <div className='header-link' >
-                <Link to='/' >Homee</Link>
+                <Link to='/' >Home</Link>
                 <Link to='/courses' >All Courses</Link>
                 <Link to='/faq'>FAQ</Link>
                 <Link to='/blog' >Blog</Link>

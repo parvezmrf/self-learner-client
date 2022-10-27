@@ -107,7 +107,7 @@ const LoginEmailPassword = () => {
                         <Form.Control
                             required
                             type="password"
-                            placeholder="First name"
+                            placeholder="password"
                             defaultValue=""
                             name='password'
                         />

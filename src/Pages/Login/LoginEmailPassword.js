@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContex } from '../../context/AuthProvider/AuthProvider';
 
 
 
 
 const LoginEmailPassword = () => {
-
+    const [errormsg, setErrormsg] = useState('');
+    const { signIn } = useContext(AuthContex);
     const [validated, setValidated] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = (event) => {
         event.preventDefault();
+        setErrormsg('')
 
         const form = event.target;
 
@@ -28,7 +36,16 @@ const LoginEmailPassword = () => {
         const password = form.password.value;
         console.log(email, password)
 
-
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                setErrormsg(error.message)
+            })
 
 
 
@@ -74,6 +91,7 @@ const LoginEmailPassword = () => {
                 />
             </Form.Group>
             <Button type="submit">Submit form</Button>
+            <p className='text-danger' >{errormsg}</p>
             <p>No account? <Link to='/register' > Register here </Link> </p>
 
         </Form>

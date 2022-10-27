@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
+import { AuthContex } from '../../context/AuthProvider/AuthProvider';
 
 
 
 
 const Register = () => {
+    const [errormsg, setErrormsg] = useState('');
+
+    const { createUser } = useContext(AuthContex)
 
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setErrormsg('')
         const form = event.target;
 
         if (form.checkValidity() === false) {
@@ -28,6 +34,18 @@ const Register = () => {
 
         console.log(name, photourl, email, password)
 
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset()
+                setErrormsg('')
+
+            })
+            .catch(error => {
+                console.log(error)
+                setErrormsg(error.message)
+            });
 
 
     }
@@ -38,7 +56,7 @@ const Register = () => {
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <h4>Please Register</h4>
             <Row className="mb-3">
-                <Form.Group className='d-flex' as={Col} md="8" >
+                <Form.Group className='d-flex mb-2' as={Col} md="8" >
                     <Form.Label as={Col} md="4">Enter Your Name</Form.Label>
                     <Form.Control
                         required
@@ -49,7 +67,7 @@ const Register = () => {
                     />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className='d-flex' as={Col} md="8" >
+                <Form.Group className='d-flex mb-2' as={Col} md="8" >
                     <Form.Label as={Col} md="4">PhotoURL</Form.Label>
                     <Form.Control
                         required
@@ -60,7 +78,7 @@ const Register = () => {
                     />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className='d-flex' as={Col} md="8" >
+                <Form.Group className='d-flex mb-2' as={Col} md="8" >
                     <Form.Label as={Col} md="4">Enter Email</Form.Label>
                     <Form.Control
                         required
@@ -71,7 +89,7 @@ const Register = () => {
                     />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className='d-flex' as={Col} md="8" >
+                <Form.Group className='d-flex mb-2' as={Col} md="8" >
                     <Form.Label as={Col} md="4">Enter Password</Form.Label>
                     <Form.Control
                         required
@@ -82,7 +100,7 @@ const Register = () => {
                     />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className='d-flex' as={Col} md="8" >
+                <Form.Group className='d-flex mb-2' as={Col} md="8" >
                     <Form.Label as={Col} md="4">Confirm Password</Form.Label>
                     <Form.Control
                         required
@@ -104,6 +122,7 @@ const Register = () => {
                 />
             </Form.Group>
             <Button type="submit">Submit form</Button>
+            <p className='text-danger' >{errormsg}</p>
             <p>Already have a account? <Link to='/login' > Login here </Link> </p>
         </Form>
     );

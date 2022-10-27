@@ -4,6 +4,7 @@ import Logo from '../../../assets/logo.png'
 import Button from 'react-bootstrap/Button';
 import { BsFillBrightnessHighFill } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
+import { BiSearchAlt } from "react-icons/bi";
 import { useContext } from "react";
 import { AuthContex } from "../../../context/AuthProvider/AuthProvider";
 import { Image } from "react-bootstrap";
@@ -26,7 +27,9 @@ const ProfileMenu = () => {
                     <img style={{ height: '40px' }} src={Logo} alt="" />
                     <h3 className="ms-3" >Self Learner</h3>
                 </div>
-                <input className='w-25 text-center border-0 rounded-5 mt-2' type="text" placeholder='Search Your Course here' />
+                <div className='d-flex align-items-center' >
+                    <span className="fs-4" > <BiSearchAlt></BiSearchAlt></span> <input className='text-center border-0 rounded-5 mt-2' type="text" placeholder='Search Your Course here' />
+                </div>
 
 
                 <div >
@@ -40,7 +43,7 @@ const ProfileMenu = () => {
                                 {user?.photoURL ? <Image style={{ height: '30px' }} roundedCircle src={user.photoURL} ></Image> : <FaUserAlt></FaUserAlt>
                                 }
 
-                                <Button className="ms-3 me-3" style={{ border: '1px solid lightblue' }} onClick={handleLogOut} variant="light">Log Out</Button>
+                                <Button className="ms-3 me-3 " style={{ border: '1px solid lightblue' }} onClick={handleLogOut} variant="light">Log Out</Button>
 
 
                             </>

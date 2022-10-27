@@ -35,7 +35,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/course/:id',
                 loader: ({ params }) => fetch(`https://self-learner-server.vercel.app/course/${params.id}`),
-                element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
+                element: <CourseDetails></CourseDetails>
             },
             {
                 path: '/buy/:id',

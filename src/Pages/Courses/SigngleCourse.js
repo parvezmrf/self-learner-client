@@ -18,7 +18,7 @@ const SigngleCourse = ({ course }) => {
                         {details.slice(0, 75) + '...'}
                     </Card.Text>
                     <div>
-                        <span>Duration: <strong>{duration}</strong> </span> <br />
+                        <span>Duration: <strong>{duration} Minutes </strong> </span> <br />
                         <span>Auther: <strong>{author} </strong> </span> <br />
                         <span>Published: <strong>{date} </strong> </span>
                     </div>

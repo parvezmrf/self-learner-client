@@ -9,6 +9,12 @@ import { useContext } from "react";
 import { AuthContex } from "../../../context/AuthProvider/AuthProvider";
 import { Image } from "react-bootstrap";
 
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
+
+
+
 
 const ProfileMenu = () => {
 
@@ -22,6 +28,8 @@ const ProfileMenu = () => {
 
     return (
         <>
+
+
             <div className='d-flex justify-content-between mt-3 ' >
                 <div className='d-flex ms-3 ' >
                     <img style={{ height: '40px' }} src={Logo} alt="" />
@@ -40,7 +48,36 @@ const ProfileMenu = () => {
                         user?.uid ?
                             <>
                                 <span className="ms-3 me-3 text-bold " > <strong> {user?.displayName}</strong>  </span>
-                                {user?.photoURL ? <Image style={{ height: '30px' }} roundedCircle src={user.photoURL} ></Image> : <FaUserAlt></FaUserAlt>
+                                {user?.photoURL ?
+                                    <>
+                                        <OverlayTrigger
+                                            placement="bottom"
+                                            overlay={<Tooltip id="button-tooltip-2">{user?.displayName} Nice to meet you! </Tooltip>}
+                                        >
+                                            {({ ref, ...triggerHandler }) => (
+                                                <Button
+                                                    variant="light"
+                                                    {...triggerHandler}
+                                                    className="d-inline-flex align-items-center"
+                                                >
+                                                    <Image
+                                                        style={{ height: '30px' }}
+                                                        ref={ref}
+                                                        roundedCircle
+                                                        src={user.photoURL}
+                                                    />
+                                                </Button>
+                                            )}
+                                        </OverlayTrigger>
+
+                                    </>
+
+
+
+                                    :
+
+
+                                    <FaUserAlt></FaUserAlt>
                                 }
 
                                 <Button className="ms-3 me-3 " style={{ border: '1px solid lightblue' }} onClick={handleLogOut} variant="light">Log Out</Button>
@@ -60,6 +97,7 @@ const ProfileMenu = () => {
 
             </div>
             <hr className='mb-3 text-muted' />
+
         </>
     );
 };

@@ -4,16 +4,18 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../context/AuthProvider/AuthProvider';
 
 
 
 
 const Register = () => {
+    const navigate = useNavigate();
+
     const [errormsg, setErrormsg] = useState('');
 
-    const { createUser } = useContext(AuthContex)
+    const { createUser, userProfileUpdate } = useContext(AuthContex)
 
     const [validated, setValidated] = useState(false);
 
@@ -32,14 +34,15 @@ const Register = () => {
         const email = form.email.value
         const password = form.password.value
 
-        console.log(name, photourl, email, password)
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                form.reset()
                 setErrormsg('')
+                form.reset()
+                handleUpdateProfile(name, photourl);
+                navigate('/')
 
             })
             .catch(error => {
@@ -48,6 +51,16 @@ const Register = () => {
             });
 
 
+    }
+
+    const handleUpdateProfile = (name, photoURL) => {
+        const profileInfo = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        userProfileUpdate(profileInfo)
+        // .then(() => { })
+        // .catch(error => console.log(error));
     }
 
 

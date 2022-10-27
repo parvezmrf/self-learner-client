@@ -10,7 +10,7 @@ const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
 
     //Google login provider
@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
 
     // logout 
     const logOut = () => {
+        setLoading(false);
         return signOut(auth)
     }
 
@@ -50,7 +51,7 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const authinfo = { user, createUser, signIn, loginProvider, logOut }
+    const authinfo = { user, createUser, signIn, loginProvider, logOut, loading }
     return (
         <AuthContex.Provider value={authinfo} >
             {children}

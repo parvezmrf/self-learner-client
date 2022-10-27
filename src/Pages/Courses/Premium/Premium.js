@@ -4,17 +4,21 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 
-const CourseDetails = () => {
+const Premium = () => {
     const course = useLoaderData()
-    const { id, names, author, details, duration, rating, date, price, img } = course;
+    const { names, author, details, duration, rating, date, price, img } = course;
 
     return (
         < div>
-            <Card className='w-75' >
+            <Card className='w-50' >
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
                     <Card.Title> {names} </Card.Title>
                     <Card.Text>
+                        {details}
+                        {details}
+                        {details}
+                        {details}
                         {details}
                     </Card.Text>
                     <p> Author: <strong>{author}</strong> </p>
@@ -22,11 +26,11 @@ const CourseDetails = () => {
                     <p> Price: <strong>${price}</strong> </p>
                     <p> Published Date: <strong>{date}</strong> </p>
                     <p> Rating: <strong>{rating}</strong> </p>
-                    <Link to={`/buy/${id}`} >  <Button variant="success"> Get the Premium</Button> </Link>
+                    <Link to='/courses' >  <Button variant="primary">Back to courses</Button> </Link>
                 </Card.Body>
             </Card>
         </div>
     );
 };
 
-export default CourseDetails;
+export default Premium;

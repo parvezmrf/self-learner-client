@@ -3,6 +3,7 @@ import Main from "../../layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import CourseDetails from "../../Pages/Courses/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
+import Premium from "../../Pages/Courses/Premium/Premium";
 import Faq from "../../Pages/Faq/Faq";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -25,7 +26,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/faq',
-                element: <PrivateRoute><Faq></Faq></PrivateRoute>
+                element: <Faq></Faq>
             },
             {
                 path: '/courses',
@@ -34,7 +35,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/course/:id',
                 loader: ({ params }) => fetch(`https://self-learner-server.vercel.app/course/${params.id}`),
-                element: <CourseDetails></CourseDetails>
+                element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
+            },
+            {
+                path: '/buy/:id',
+                loader: ({ params }) => fetch(`https://self-learner-server.vercel.app/buy/${params.id}`),
+                element: <PrivateRoute><Premium></Premium></PrivateRoute>
             },
             {
                 path: '/login',

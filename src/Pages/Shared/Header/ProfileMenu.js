@@ -11,6 +11,7 @@ import { Image } from "react-bootstrap";
 
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import './ProfileMenu.css'
 
 
 
@@ -30,12 +31,12 @@ const ProfileMenu = () => {
         <>
 
 
-            <div className='d-flex justify-content-between mt-3 ' >
-                <div className='d-flex ms-3 ' >
+            <div className='d-flex justify-content-between mt-3 responsive ' >
+                <div className='d-flex ms-3 responsive ' >
                     <img style={{ height: '40px' }} src={Logo} alt="" />
                     <h3 className="ms-3" >Self Learner</h3>
                 </div>
-                <div className='d-flex align-items-center' >
+                <div className='d-flex align-items-center responsive' >
                     <span className="fs-4" > <BiSearchAlt></BiSearchAlt></span> <input className='text-center border-0 rounded-5 mt-2' type="text" placeholder='Search Your Course here' />
                 </div>
 

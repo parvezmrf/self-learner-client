@@ -85,7 +85,7 @@ const ProfileMenu = () => {
 
                             </>
                             :
-                            <> <Link to='login' ><Button variant="outline-success" className="me-2" >Login</Button></Link>
+                            <> <Link to='/loginemailpssword' ><Button variant="outline-success" className="me-2" >Login</Button></Link>
                                 <Link to='register' ><Button variant="outline-success" className="me-2" >Register</Button></Link>
 
                             </>

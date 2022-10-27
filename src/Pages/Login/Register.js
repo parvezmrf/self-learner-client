@@ -138,7 +138,7 @@ const Register = () => {
                         feedbackType="invalid"
                     />
                 </Form.Group>
-                <Button type="submit">Submit form</Button>
+                <Button type="submit">Register</Button>
                 <p className='text-danger' >{errormsg}</p>
                 <p>Already have a account? <Link to='/login' > Login here </Link> </p>
             </Form>

@@ -124,7 +124,7 @@ const LoginEmailPassword = () => {
                         feedbackType="invalid"
                     />
                 </Form.Group>
-                <Button type="submit">Submit form</Button>
+                <Button type="submit">Login</Button>
                 <p className='text-danger' >{errormsg}</p>
                 <p>No account? <Link to='/register' > Register here </Link> </p>
 

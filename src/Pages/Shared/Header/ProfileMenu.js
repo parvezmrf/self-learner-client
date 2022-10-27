@@ -31,13 +31,13 @@ const ProfileMenu = () => {
         <>
 
 
-            <div className='d-flex justify-content-between mt-3 responsive ' >
+            <div className='d-flex justify-content-between mt-3 respons ' >
                 <div className='d-flex ms-3 responsive ' >
                     <img style={{ height: '40px' }} src={Logo} alt="" />
                     <h3 className="ms-3" >Self Learner</h3>
                 </div>
-                <div className='d-flex align-items-center responsive' >
-                    <span className="fs-4" > <BiSearchAlt></BiSearchAlt></span> <input className='text-center border-0 rounded-5 mt-2' type="text" placeholder='Search Your Course here' />
+                <div className='d-flex align-items-center hdd respons' >
+                    <span className="fs-4 hdd" >  <BiSearchAlt></BiSearchAlt> </span> <input className='text-center border-0 rounded-5 mt-2 hdd' type="text" placeholder='Search Your Course here' />
                 </div>
 
 

@@ -53,6 +53,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '*',
+                element: <h2> <h1>404</h1> Sorry. No data found in this links.</h2>
             }
         ]
     }

@@ -11,3 +11,12 @@
     margin-right: 15px;
     text-decoration: none;
 }
+
+@media (max-width: 576px) {
+
+    .header-link a {
+        display: block;
+        color: brown;
+        text-align: center;
+    }
+}

@@ -2,16 +2,23 @@ import { Link } from "react-router-dom";
 import React from 'react';
 import Logo from '../../../assets/logo.png'
 import Button from 'react-bootstrap/Button';
+import { BsFillBrightnessHighFill } from "react-icons/bs";
+import { FaUserAlt } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContex } from "../../../context/AuthProvider/AuthProvider";
+import { Image } from "react-bootstrap";
+
 
 const ProfileMenu = () => {
 
-    const uuud = {
-        id: 10,
-        name: 'Parvez',
-        age: 'pp'
+    const { user, logOut } = useContext(AuthContex);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
     }
 
-    console.log(uuud.id)
+
     return (
         <>
             <div className='d-flex justify-content-between mt-3 ' >
@@ -19,20 +26,33 @@ const ProfileMenu = () => {
                     <img style={{ height: '40px' }} src={Logo} alt="" />
                     <h3 className="ms-3" >Self Learner</h3>
                 </div>
-                <input className='w-50 text-center border-0 rounded-5 mt-2' type="text" placeholder='Search Your Course here' />
-                <div>
+                <input className='w-25 text-center border-0 rounded-5 mt-2' type="text" placeholder='Search Your Course here' />
 
-                    {uuud.id ? <span>
-                        <Link to='login' ><Button variant="outline-success" className="me-2" >Login</Button></Link>
-                        <Link to='register' ><Button variant="outline-success" className="me-2" >Register</Button></Link>
 
-                    </span> : <span>None</span>
+                <div >
 
+
+
+                    {
+                        user?.uid ?
+                            <>
+                                <span className="ms-3 me-3 text-bold " > <strong> {user?.displayName}</strong>  </span>
+                                {user?.photoURL ? <Image style={{ height: '30px' }} roundedCircle src={user.photoURL} ></Image> : <FaUserAlt></FaUserAlt>
+                                }
+
+                                <Button className="ms-3 me-3" style={{ border: '1px solid lightblue' }} onClick={handleLogOut} variant="light">Log Out</Button>
+
+
+                            </>
+                            :
+                            <> <Link to='login' ><Button variant="outline-success" className="me-2" >Login</Button></Link>
+                                <Link to='register' ><Button variant="outline-success" className="me-2" >Register</Button></Link>
+
+                            </>
                     }
 
-                    <img style={{ height: '40px' }} src={Logo} alt="" />
-                    <button className='btn btn-info me-2' >LogOut</button>
-                    <span className="me-4" >Theme Dark/Light</span>
+
+                    <span className="me-4" ><BsFillBrightnessHighFill></BsFillBrightnessHighFill> </span>
                 </div>
 
             </div>

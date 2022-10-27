@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const SidebarOption = ({ course }) => {
     const { name, id } = course;
-    console.log(course)
 
     return (
         <div  >
